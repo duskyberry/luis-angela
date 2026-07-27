@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Luis & Ángela · Pool Party</title>
+    <meta
+      name="description"
+      content="Estás invitado a la pool party de Luis y Ángela · Viernes 14 de agosto"
+    />
+
+    <!-- WhatsApp / Open Graph preview -->
+    <meta property="og:title" content="Luis cumple 9 & Ángela cumple 11 🎉" />
+    <meta
+      property="og:description"
+      content="¡Te invitamos a celebrar con nosotros! Viernes 14 de agosto, 1pm — Palapa Luzuane"
+    />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/edvardoviedo/recursos/refs/heads/main/duskyberry/thumbnail.jpg"
+    />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Baloo+2:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Fixed background -->
+    <div class="bg-fixed" aria-hidden="true"></div>
+
+    <!-- ================= ENTRY SCREEN ================= -->
+    <section
+      id="entry"
+      class="entry-screen"
+      aria-label="Pantalla de bienvenida"
+    >
+      <div class="entry-emojis" aria-hidden="true">
+        <span style="--i: 0">🏊‍♀️</span>
+        <span style="--i: 1">☀️</span>
+        <span style="--i: 2">🩱</span>
+        <span style="--i: 3">🍉</span>
+        <span style="--i: 4">🎈</span>
+        <span style="--i: 5">🌴</span>
+        <span style="--i: 6">💦</span>
+        <span style="--i: 7">🕶️</span>
+        <span style="--i: 8">🍭</span>
+        <span style="--i: 9">🏖️</span>
+        <span style="--i: 10">🎊</span>
+        <span style="--i: 11">🐠</span>
+      </div>
+
+      <div class="entry-content">
+        <p class="entry-eyebrow">Has recibido una invitación muy especial</p>
+        <h1 class="entry-title">
+          Una tarde de sol,<br />risas y alberca<br />te está esperando
+        </h1>
+        <button
+          id="discoverBtn"
+          class="discover-btn"
+          aria-label="Descubrir la invitación"
+        >
+          <span>Descubrir</span>
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 4v16m0 0l-6-6m6 6l6-6"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
+    <!-- ================= MAIN INVITATION ================= -->
+    <main id="invitation" class="invitation" hidden>
+      <!-- HERO -->
+      <section class="hero" aria-label="Portada">
+        <div class="hero-media">
+          <img
+            src="https://raw.githubusercontent.com/edvardoviedo/pauluis/refs/heads/main/photos7/cover.jpeg"
+            alt="Luis y Ángela"
+            class="hero-img"
+          />
+          <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content reveal">
+          <p class="hero-kicker">¡Pool Party!</p>
+          <h1 class="hero-title">Luis cumple 9 &amp;<br />Ángela cumple 11</h1>
+          <p class="hero-sub">¡Te invitamos a celebrar!</p>
+        </div>
+        <div class="scroll-hint" aria-hidden="true"><span></span></div>
+      </section>
+
+      <div class="divider-ball" aria-hidden="true">
+        <img
+          src="https://raw.githubusercontent.com/edvardoviedo/pauluis/refs/heads/main/art/ball.gif"
+          alt=""
+        />
+      </div>
+
+      <!-- MENSAJE EMOCIONAL -->
+      <section class="section message-section" aria-label="Mensaje">
+        <div class="glass-card reveal">
+          <p class="reveal-line" style="--d: 0">
+            Gracias a Dios por un año más de vida, de risas y de bendiciones. 🙏
+          </p>
+          <p class="reveal-line" style="--d: 1">
+            Estamos muy felices de cumplir años juntos y queremos celebrarlo con
+            las personas que más queremos.
+          </p>
+          <p class="reveal-line" style="--d: 2">
+            <strong>Tu presencia es muy importante para nosotros.</strong>
+          </p>
+          <p class="reveal-line" style="--d: 3">
+            ¡Pasemos un día súper divertido, lleno de sol, agua y buena
+            compañía! 💦
+          </p>
+        </div>
+      </section>
+
+      <div class="divider-ball" aria-hidden="true">
+        <img
+          src="https://raw.githubusercontent.com/edvardoviedo/pauluis/refs/heads/main/art/ball.gif"
+          alt=""
+        />
+      </div>
+
+      <!-- COUNTDOWN -->
+      <section class="section countdown-section" aria-label="Cuenta regresiva">
+        <div class="glass-card countdown-card reveal">
+          <p class="countdown-label">Nos vemos en</p>
+          <div class="countdown" id="countdown">
+            <div class="cd-unit">
+              <span id="cd-days">00</span><small>días</small>
+            </div>
+            <div class="cd-unit">
+              <span id="cd-hours">00</span><small>hrs</small>
+            </div>
+            <div class="cd-unit">
+              <span id="cd-min">00</span><small>min</small>
+            </div>
+            <div class="cd-unit">
+              <span id="cd-sec">00</span><small>seg</small>
+            </div>
+          </div>
+          <p class="countdown-date">Viernes 14 de agosto · 1:00 pm</p>
+          <div class="swim-banner">
+            <img
+              src="https://raw.githubusercontent.com/edvardoviedo/pauluis/refs/heads/main/art/3.gif"
+              alt=""
+              aria-hidden="true"
+            />
+            <p>Prepara tu traje de baño y vamos a divertirnos</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-ball" aria-hidden="true">
+        <img
+          src="https://raw.githubusercontent.com/edvardoviedo/pauluis/refs/heads/main/art/ball.gif"
+          alt=""
+        />
+      </div>
+
+      <!-- GALERÍA -->
+      <section class="section gallery-section" aria-label="Galería de fotos">
+        <h2 class="section-title reveal">Momentos que nos encantan</h2>
+        <div class="gallery-track">
+          <div class="gallery-item float-1">
+            <img
+              src="https://raw.githubusercontent.com/edvardoviedo/pauluis/refs/heads/main/photos7/1.jpeg"
+              alt="Foto 1"
+              loading="lazy"
+            />
+          </div>
+          <div class="gallery-item float-2">
+            <img
+              src="https://raw.githubusercontent.com/edvardoviedo/pauluis/refs/heads/main/photos7/2.jpeg"
+              alt="Foto 2"
+              loading="lazy"
+            />
+          </div>
+          <div class="gallery-item float-3">
+            <img
+              src="https://raw.githubusercontent.com/edvardoviedo/pauluis/refs/heads/main/photos7/3.jpeg"
+              alt="Foto 3"
+              loading="lazy"
+            />
+          </div>
+          <div class="gallery-item float-1">
+            <img
+              src="https://raw.githubusercontent.com/edvardoviedo/pauluis/refs/heads/main/photos7/4.jpeg"
+              alt="Foto 4"
+              loading="lazy"
+            />
+          </div>
+          <div class="gallery-item float-2">
+            <img
+              src="https://raw.githubusercontent.com/edvardoviedo/pauluis/refs/heads/main/photos7/5.jpeg"
+              alt="Foto 5"
+              loading="lazy"
+            />
+          </div>
+          <div class="gallery-item float-3">
+            <img
+              src="https://raw.githubusercontent.com/edvardoviedo/pauluis/refs/heads/main/photos7/6.jpg"
+              alt="Foto 6"
+              loading="lazy"
+            />
+          </div>
+          <div class="gallery-item float-1">
+            <img
+              src="https://raw.githubusercontent.com/edvardoviedo/pauluis/refs/heads/main/photos7/7.jpeg"
+              alt="Foto 7"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-ball" aria-hidden="true">
+        <img
+          src="https://raw.githubusercontent.com/edvardoviedo/pauluis/refs/heads/main/art/ball.gif"
+          alt=""
+        />
+      </div>
+
+      <!-- DATOS DEL EVENTO -->
+      <section class="section event-section" aria-label="Datos del evento">
+        <div class="glass-card reveal">
+          <h2 class="section-title">¿Cuándo y dónde?</h2>
+          <div class="event-detail">
+            <span class="event-icon" aria-hidden="true">📅</span>
+            <div><strong>Viernes 14 de agosto</strong><span>1:00 pm</span></div>
+          </div>
+          <div class="event-detail">
+            <span class="event-icon" aria-hidden="true">📍</span>
+            <div>
+              <strong>Palapa Luzuane</strong
+              ><span
+                >Nuez de La India 300, Los Nogales II, 25057 Saltillo,
+                Coah.</span
+              >
+            </div>
+          </div>
+          <div class="map-embed">
+            <iframe
+              title="Ubicación Palapa Luzuane"
+              src="https://www.google.com/maps?q=Nuez+de+La+India+300,+Los+Nogales+II,+25057+Saltillo,+Coah.&output=embed"
+              width="100%"
+              height="260"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            >
+            </iframe>
+          </div>
+          <button id="calendarBtn" class="pill-btn">
+            Agregar al calendario
+          </button>
+        </div>
+      </section>
+
+      <div class="divider-ball" aria-hidden="true">
+        <img
+          src="https://raw.githubusercontent.com/edvardoviedo/pauluis/refs/heads/main/art/ball.gif"
+          alt=""
+        />
+      </div>
+
+      <!-- ITINERARIO -->
+      <section class="section itinerary-section" aria-label="Itinerario">
+        <div class="glass-card reveal">
+          <h2 class="section-title">Itinerario</h2>
+          <ul class="itinerary-list">
+            <li><span class="it-icon">👋</span>Bienvenida</li>
+            <li><span class="it-icon">🍬</span>Candy &amp; Snack Bar</li>
+            <li><span class="it-icon">📸</span>Tiempo de fotos</li>
+            <li><span class="it-icon">🎮</span>Juegos y dinámicas</li>
+            <li><span class="it-icon">🍽️</span>Lunch</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="divider-ball" aria-hidden="true">
+        <img
+          src="https://raw.githubusercontent.com/edvardoviedo/pauluis/refs/heads/main/art/ball.gif"
+          alt=""
+        />
+      </div>
+
+      <!-- PLAYLIST -->
+      <section class="section playlist-section" aria-label="Playlist">
+        <div class="glass-card reveal">
+          <h2 class="section-title">
+            Nuestras canciones favoritas del momento
+          </h2>
+          <p class="playlist-text">
+            Dale play y ponte en modo fiesta antes de llegar 🎶
+          </p>
+          <div class="spotify-wrap">
+            <iframe
+              data-testid="embed-iframe"
+              style="border-radius: 16px"
+              src="https://open.spotify.com/embed/playlist/7HNzDYlqUTpozojqvp3aB0?utm_source=generator&si=f32fa5e2d9c84ed1"
+              width="100%"
+              height="352"
+              frameborder="0"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-ball" aria-hidden="true">
+        <img
+          src="https://raw.githubusercontent.com/edvardoviedo/pauluis/refs/heads/main/art/ball.gif"
+          alt=""
+        />
+      </div>
+
+      <!-- RSVP -->
+      <section class="section rsvp-section" aria-label="Confirmar asistencia">
+        <div class="glass-card reveal">
+          <h2 class="section-title">Confirma tu asistencia</h2>
+          <p class="rsvp-text">Nos encantaría saber que vienes 💌</p>
+          <form id="rsvpForm" class="rsvp-form">
+            <label for="rsvpName">Nombre</label>
+            <input
+              type="text"
+              id="rsvpName"
+              name="rsvpName"
+              placeholder="Tu nombre"
+              required
+            />
+
+            <label for="rsvpGuests">¿Cuántos acompañantes?</label>
+            <input
+              type="number"
+              id="rsvpGuests"
+              name="rsvpGuests"
+              placeholder="0"
+              min="0"
+              max="20"
+              required
+            />
+
+            <label for="rsvpMessage">Mensaje especial para Luis y Ángela</label>
+            <textarea
+              id="rsvpMessage"
+              name="rsvpMessage"
+              rows="3"
+              placeholder="Escribe tu mensaje aquí..."
+            ></textarea>
+
+            <button type="submit" class="pill-btn rsvp-submit">
+              Confirmar asistencia
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <div class="divider-ball" aria-hidden="true">
+        <img
+          src="https://raw.githubusercontent.com/edvardoviedo/pauluis/refs/heads/main/art/ball.gif"
+          alt=""
+        />
+      </div>
+
+      <!-- REGALOS -->
+      <section class="section gifts-section" aria-label="Regalos">
+        <div class="glass-card reveal gifts-card">
+          <span class="gifts-icon" aria-hidden="true">✉️</span>
+          <p class="gifts-text">
+            Tu asistencia es lo más importante para nosotros.<br />Si deseas
+            obsequiarnos algo, te agradecemos sea sobre.
+          </p>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <p>Hecho con amor por duskyberry · 2026</p>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
